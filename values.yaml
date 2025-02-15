@@ -1,0 +1,11 @@
+replicaCount: 1
+
+image:
+  repository: "docker.io"
+  tag: "prodms/test-app"
+  version: "1.0.0-SNAPSHOT"
+  pullPolicy: IfNotPresent
+
+app:
+  id: "test-app-id"
+  port: 8080
