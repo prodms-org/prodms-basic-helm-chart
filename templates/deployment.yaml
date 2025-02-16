@@ -25,4 +25,5 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.app.id }}-env-cm
-
+      imagePullSecrets:
+        - name: regcred
