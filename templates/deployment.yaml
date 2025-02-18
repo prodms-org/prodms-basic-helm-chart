@@ -25,5 +25,20 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.app.id }}-env-cm
+          env:
+            - name: APP_ID
+              value: {{ .Values.app.id }}
+        {{- if .Values.env }}
+          {{- if .Values.env.valuesFromSecretRef }}
+            {{- range $envValue := .Values.env.valuesFromSecretRef }}
+            - name: {{ $envValue.name }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $envValue.secretName }}
+                  key: {{ $envValue.key }}
+            {{- end }}
+          {{- end }}
+        {{- end }}
+
       imagePullSecrets:
         - name: regcred

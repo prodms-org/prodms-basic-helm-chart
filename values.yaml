@@ -9,3 +9,12 @@ image:
 app:
   id: "test-app-id"
   port: 8080
+
+env:
+  valuesFromSecretRef:
+    - name: TEST_SECRET_1
+      secretName: secret-name-1
+      key: secret-key
+    - name: TEST_SECRET_2
+      secretName: secret-name
+      key: secret-key-2
