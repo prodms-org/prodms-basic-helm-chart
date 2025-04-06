@@ -27,7 +27,7 @@ spec:
                 name: {{ .Values.app.id }}-env-cm
           env:
             - name: SERVER_PORT
-              value: {{ .Values.app.port }}
+              value: {{ .Values.app.port | quote}}
             - name: APP_ID
               value: {{ .Values.app.id }}
         {{- if .Values.env }}
