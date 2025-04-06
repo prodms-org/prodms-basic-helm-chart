@@ -26,6 +26,8 @@ spec:
             - configMapRef:
                 name: {{ .Values.app.id }}-env-cm
           env:
+            - name: SERVER_PORT
+              value: {{ .Values.app.port }}
             - name: APP_ID
               value: {{ .Values.app.id }}
         {{- if .Values.env }}
